@@ -1,6 +1,6 @@
 # Cloud Init Library
 
-A comprehensive collection of cloud-init scripts and configurations for system administration and configuration management.
+A collection of cloud-init scripts and configurations for system administration and configuration management.
 
 ## Overview
 
@@ -13,16 +13,13 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 - Custom script execution
 
 ```mermaid
-graph LR
-  CloudImage --> CloudInit
-  CloudInit --> Network
-  CloudInit --> Packages
-  CloudInit --> Users
-  CloudInit --> Scripts
-  Network --> ReadyInstance
-  Packages --> ReadyInstance
-  Users --> ReadyInstance
-  Scripts --> ReadyInstance
+flowchart LR
+  CloudImage[Cloud Image] --> CloudInit[Cloud-Init]
+  CloudInit --> Network[Configure Network]
+  CloudInit --> Packages[Install Packages]
+  CloudInit --> Users[Setup Users]
+  CloudInit --> Scripts[Run Scripts]
+  Network & Packages & Users & Scripts --> ReadyInstance[Ready Instance]
 ```
 
 ## Features
@@ -45,29 +42,33 @@ graph LR
 ## Project Structure
 
 ```mermaid
-graph TD
-  Root --> Platforms
-  Root --> Configs
-  Root --> Tools
-  Root --> Tests
-  Root --> Docs
-  Platforms --> Ubuntu
-  Platforms --> CentOS
-  Configs --> NetworkConfig
-  Configs --> SecurityConfig
-  Configs --> StorageConfig
+mindmap
+  root((cloud-init-library))
+    Platforms
+      Ubuntu
+      CentOS
+    Configs
+      Network
+      Security
+      Storage
+    Tools
+    Tests
+    Docs
 ```
 
 ## Workflow
 
 ```mermaid
-graph LR
-  User --> Cloud
-  Cloud --> Instance
-  Instance --> Config
-  Config --> System
-  System --> Ready
-  Ready --> User
+sequenceDiagram
+    participant User
+    participant Cloud
+    participant Instance
+    participant CloudInit
+    User->>Cloud: Launch instance
+    Cloud->>Instance: Create VM
+    Instance->>CloudInit: Load configuration
+    CloudInit->>Instance: Configure system
+    Instance->>User: Ready for use
 ```
 
 ## Quick Start
