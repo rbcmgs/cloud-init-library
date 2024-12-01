@@ -42,7 +42,7 @@ flowchart LR
 ## Project Structure
 
 ```mermaid
-flowchart TD
+flowchart TB
   Root[cloud-init-library] --> Platforms
   Root --> Configs
   Root --> Tools
@@ -58,7 +58,7 @@ flowchart TD
 ## Workflow
 
 ```mermaid
-flowchart TD
+flowchart TB
   User[User] -->|Launch instance| Cloud[Cloud]
   Cloud -->|Create VM| Instance[Instance]
   Instance -->|Load configuration| CloudInit[CloudInit]
