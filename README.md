@@ -1,3 +1,4 @@
+<!-- markdownlint-disable MD033 -->
 # Cloud Init Library
 
 A comprehensive collection of cloud-init scripts and configurations for system administration and configuration management.
