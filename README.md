@@ -62,8 +62,8 @@ flowchart TD
   User[User] -->|Launch instance| Cloud[Cloud]
   Cloud -->|Create VM| Instance[Instance]
   Instance -->|Load configuration| CloudInit[CloudInit]
-  CloudInit -->|Configure system| Instance
-  Instance -->|Ready for use| User
+  CloudInit -->|Configure system| ConfiguredInstance[Configured Instance]
+  ConfiguredInstance -->|Ready for use| User
 ```
 
 ## Quick Start
