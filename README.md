@@ -58,16 +58,12 @@ flowchart TD
 ## Workflow
 
 ```mermaid
-sequenceDiagram
-  participant User
-  participant Cloud
-  participant Instance
-  participant CloudInit
-  User->>Cloud: Launch instance
-  Cloud->>Instance: Create VM
-  Instance->>CloudInit: Load configuration
-  CloudInit->>Instance: Configure system
-  Instance->>User: Ready for use
+flowchart TD
+  User[User] -->|Launch instance| Cloud[Cloud]
+  Cloud -->|Create VM| Instance[Instance]
+  Instance -->|Load configuration| CloudInit[CloudInit]
+  CloudInit -->|Configure system| Instance
+  Instance -->|Ready for use| User
 ```
 
 ## Quick Start
