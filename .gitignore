@@ -1,0 +1,53 @@
+# General files
+*.log
+*.tmp
+*.bak
+*.swp
+*~
+
+# Python generated files
+__pycache__/
+*.pyc
+*.pyo
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Backup and IDE specific files
+*.bak
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# Logs and databases from tools
+logs/
+*.sqlite
+
+# Test and coverage results
+.coverage
+.cache
+nosetests.xml
+pytest.xml
+test-results/
+
+# Virtual environment and dependency directories
+env/
+venv/
+.venv/
+
+# Build directories and files
+build/
+dist/
+*.egg-info/
+
+# Node and NPM (if any JavaScript tooling is used)
+node_modules/
+
+# Example sensitive files (modify these based on your specific needs)
+# .env
+# credentials.json
+
+# Custom files pertaining to local instances
+local_settings.py
