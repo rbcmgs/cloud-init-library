@@ -14,12 +14,12 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 
 ```mermaid
 flowchart LR
-  A[Cloud Image] --> B[Cloud-Init]
-  B --> C[Configure Network]
-  B --> D[Install Packages]
-  B --> E[Setup Users]
-  B --> F[Run Scripts]
-  C & D & F & E --> G[Ready Instance]
+  CloudImage[Cloud Image] --> CloudInit[Cloud-Init]
+  CloudInit --> Network[Configure Network]
+  CloudInit --> Packages[Install Packages]
+  CloudInit --> Users[Setup Users]
+  CloudInit --> Scripts[Run Scripts]
+  Network & Packages & Users & Scripts --> ReadyInstance[Ready Instance]
 ```
 
 ## Features
@@ -43,31 +43,31 @@ flowchart LR
 
 ```mermaid
 flowchart TD
-  A[cloud-init-library] --> B[platforms]
-  A --> C[configs]
-  A --> D[tools]
-  A --> E[tests]
-  A --> F[docs]
-  B --> G[ubuntu]
-  B --> H[centos]
-  C --> I[network]
-  C --> J[security]
-  C --> K[storage]
+  Root[cloud-init-library] --> Platforms
+  Root --> Configs
+  Root --> Tools
+  Root --> Tests
+  Root --> Docs
+  Platforms --> Ubuntu
+  Platforms --> CentOS
+  Configs --> NetworkConfig[Network]
+  Configs --> SecurityConfig[Security]
+  Configs --> StorageConfig[Storage]
 ```
 
 ## Workflow
 
 ```mermaid
 sequenceDiagram
-    participant User
-    participant Cloud
-    participant Instance
-    participant CloudInit
-    User->>Cloud: Launch instance
-    Cloud->>Instance: Create VM
-    Instance->>CloudInit: Load configuration
-    CloudInit->>Instance: Configure system
-    Instance->>User: Ready for use
+  participant User
+  participant Cloud
+  participant Instance
+  participant CloudInit
+  User->>Cloud: Launch instance
+  Cloud->>Instance: Create VM
+  Instance->>CloudInit: Load configuration
+  CloudInit->>Instance: Configure system
+  Instance->>User: Ready for use
 ```
 
 ## Quick Start
