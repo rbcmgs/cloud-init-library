@@ -1,4 +1,3 @@
-<!-- markdownlint-disable MD033 -->
 # Cloud Init Library
 
 A comprehensive collection of cloud-init scripts and configurations for system administration and configuration management.
@@ -14,7 +13,7 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 - Custom script execution
 
 ```mermaid
-flowchart LR
+graph LR
   CloudImage[Cloud Image] --> CloudInit[Cloud-Init]
   CloudInit --> Network[Configure Network]
   CloudInit --> Packages[Install Packages]
@@ -43,7 +42,7 @@ flowchart LR
 ## Project Structure
 
 ```mermaid
-flowchart TD
+graph TD
   Root[cloud-init-library] --> Platforms
   Root --> Configs
   Root --> Tools
@@ -59,7 +58,7 @@ flowchart TD
 ## Workflow
 
 ```mermaid
-flowchart LR
+graph LR
   User([User]) --> |Launch|Cloud([Cloud Platform])
   Cloud --> |Create|Instance([Virtual Machine])
   Instance --> |Load|Config([Cloud-Init Config])
