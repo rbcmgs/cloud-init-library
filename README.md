@@ -13,7 +13,7 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 - Custom script execution
 
 ```mermaid
-graph LR
+flowchart LR
   A[Cloud Image] --> B[Cloud-Init]
   B --> C[Configure Network]
   B --> D[Install Packages]
@@ -42,7 +42,7 @@ graph LR
 ## Project Structure
 
 ```mermaid
-graph TD
+flowchart TD
   A[cloud-init-library] --> B[platforms]
   A --> C[configs]
   A --> D[tools]
@@ -59,15 +59,15 @@ graph TD
 
 ```mermaid
 sequenceDiagram
-  participant User
-  participant Cloud
-  participant Instance
-  participant Cloud-Init
-  User->>Cloud: Launch instance
-  Cloud->>Instance: Create VM
-  Instance->>Cloud-Init: Load configuration
-  Cloud-Init->>Instance: Configure system
-  Instance->>User: Ready for use
+    participant User
+    participant Cloud
+    participant Instance
+    participant CloudInit
+    User->>Cloud: Launch instance
+    Cloud->>Instance: Create VM
+    Instance->>CloudInit: Load configuration
+    CloudInit->>Instance: Configure system
+    Instance->>User: Ready for use
 ```
 
 ## Quick Start
