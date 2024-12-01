@@ -129,8 +129,6 @@ See [Contributor Guide](docs/contributor-guide.md) for guidelines on submitting 
 ## Support
 
 - Create an [Issue](https://github.com/rbcmgs/cloud-init-library/issues)
-- Join our [Discord Community](https://discord.gg/cloudiniters)
-- Follow our [Blog](https://medium.com/cloud-init-library)
 
 ## Contributors
 
