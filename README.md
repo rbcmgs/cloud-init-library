@@ -13,16 +13,16 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 - Custom script execution
 
 ```mermaid
-erDiagram
-  CloudImage ||--|{ CloudInit : initializes
-  CloudInit ||--|{ Network : configures
-  CloudInit ||--|{ Packages : installs
-  CloudInit ||--|{ Users : sets_up
-  CloudInit ||--|{ Scripts : runs
-  Network }|--|{ ReadyInstance : creates
-  Packages }|--|{ ReadyInstance : creates
-  Users }|--|{ ReadyInstance : creates
-  Scripts }|--|{ ReadyInstance : creates
+graph LR
+  CloudImage --> CloudInit
+  CloudInit --> Network
+  CloudInit --> Packages
+  CloudInit --> Users
+  CloudInit --> Scripts
+  Network --> ReadyInstance
+  Packages --> ReadyInstance
+  Users --> ReadyInstance
+  Scripts --> ReadyInstance
 ```
 
 ## Features
@@ -45,29 +45,29 @@ erDiagram
 ## Project Structure
 
 ```mermaid
-erDiagram
-  Root ||--|{ Platforms : contains
-  Root ||--|{ Configs : manages
-  Root ||--|{ Tools : includes
-  Root ||--|{ Tests : validates
-  Root ||--|{ Docs : describes
-  Platforms ||--|{ Ubuntu : supports
-  Platforms ||--|{ CentOS : supports
-  Configs ||--|{ NetworkConfig : defines
-  Configs ||--|{ SecurityConfig : defines
-  Configs ||--|{ StorageConfig : defines
+graph TD
+  Root --> Platforms
+  Root --> Configs
+  Root --> Tools
+  Root --> Tests
+  Root --> Docs
+  Platforms --> Ubuntu
+  Platforms --> CentOS
+  Configs --> NetworkConfig
+  Configs --> SecurityConfig
+  Configs --> StorageConfig
 ```
 
 ## Workflow
 
 ```mermaid
-erDiagram
-  User ||--|{ Cloud : launches
-  Cloud ||--|{ Instance : creates
-  Instance ||--|{ Config : loads
-  Config ||--|{ System : applies
-  System ||--|{ Ready : completes
-  Ready }|--|{ User : accessed_by
+graph LR
+  User --> Cloud
+  Cloud --> Instance
+  Instance --> Config
+  Config --> System
+  System --> Ready
+  Ready --> User
 ```
 
 ## Quick Start
