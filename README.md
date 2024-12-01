@@ -13,13 +13,16 @@ Cloud-init is the industry standard for cross-platform cloud instance initializa
 - Custom script execution
 
 ```mermaid
-graph LR
-  CloudImage[Cloud Image] --> CloudInit[Cloud-Init]
-  CloudInit --> Network[Configure Network]
-  CloudInit --> Packages[Install Packages]
-  CloudInit --> Users[Setup Users]
-  CloudInit --> Scripts[Run Scripts]
-  Network & Packages & Users & Scripts --> ReadyInstance[Ready Instance]
+erDiagram
+  CloudImage ||--|{ CloudInit : initializes
+  CloudInit ||--|{ Network : configures
+  CloudInit ||--|{ Packages : installs
+  CloudInit ||--|{ Users : sets_up
+  CloudInit ||--|{ Scripts : runs
+  Network }|--|{ ReadyInstance : creates
+  Packages }|--|{ ReadyInstance : creates
+  Users }|--|{ ReadyInstance : creates
+  Scripts }|--|{ ReadyInstance : creates
 ```
 
 ## Features
@@ -42,29 +45,29 @@ graph LR
 ## Project Structure
 
 ```mermaid
-graph TD
-  Root[cloud-init-library] --> Platforms
-  Root --> Configs
-  Root --> Tools
-  Root --> Tests
-  Root --> Docs
-  Platforms --> Ubuntu
-  Platforms --> CentOS
-  Configs --> NetworkConfig[Network]
-  Configs --> SecurityConfig[Security]
-  Configs --> StorageConfig[Storage]
+erDiagram
+  Root ||--|{ Platforms : contains
+  Root ||--|{ Configs : manages
+  Root ||--|{ Tools : includes
+  Root ||--|{ Tests : validates
+  Root ||--|{ Docs : describes
+  Platforms ||--|{ Ubuntu : supports
+  Platforms ||--|{ CentOS : supports
+  Configs ||--|{ NetworkConfig : defines
+  Configs ||--|{ SecurityConfig : defines
+  Configs ||--|{ StorageConfig : defines
 ```
 
 ## Workflow
 
 ```mermaid
-graph LR
-  User([User]) --> |Launch|Cloud([Cloud Platform])
-  Cloud --> |Create|Instance([Virtual Machine])
-  Instance --> |Load|Config([Cloud-Init Config])
-  Config --> |Apply|System([System Setup])
-  System --> |Complete|Ready([Ready Instance])
-  Ready --> |Access|User
+erDiagram
+  User ||--|{ Cloud : launches
+  Cloud ||--|{ Instance : creates
+  Instance ||--|{ Config : loads
+  Config ||--|{ System : applies
+  System ||--|{ Ready : completes
+  Ready }|--|{ User : accessed_by
 ```
 
 ## Quick Start
